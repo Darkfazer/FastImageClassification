@@ -18,7 +18,8 @@ setup(name='fast_image_classification',
       author_email='mansaryounessecp@gmail.com',
       url='https://github.com/CVxTz/FastImageClassification',
       license='MIT',
-      install_requires=REQUIRED,
+      install_requires=[
+    'opencv_python>=4.1.1.26',  ],
       classifiers=[
           'Intended Audience :: Developers',
           'Intended Audience :: Education',

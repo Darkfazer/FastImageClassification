@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fast-image-classification
+spec:
+  replicas: 1  # You can increase this if you want multiple replicas
+  selector:
+    matchLabels:
+      app: fast-image-classification
+  template:
+    metadata:
+      labels:
+        app: fast-image-classification
+    spec:
+      containers:
+      - name: fast-image-classification
+        image: <your-image-name>:<tag>  # Replace with your Docker image
+        ports:
+        - containerPort: 8080  # Assuming your app listens on port 8080
+        resources:
+          limits:
+            cpu: "1"
+            memory: "1Gi"
+          requests:
+            cpu: "0.5"
+            memory: "512Mi"
+        env:
+        - name: ENV_VAR_NAME
+          value: "value"  # Example of setting environment variables if needed
